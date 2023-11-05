@@ -1,0 +1,40 @@
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    target-branch: 'dev'
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    target-branch: 'dev'
+
+  - package-ecosystem: 'npm'
+    directory: '/apps/bot'
+    schedule:
+      interval: 'daily'
+    target-branch: 'dev'
+    labels:
+      - 'dependencies'
+    open-pull-requests-limit: 20
+
+  - package-ecosystem: 'npm'
+    directory: '/packages/eslint-config-galaxity'
+    schedule:
+      interval: 'daily'
+    target-branch: 'dev'
+    labels:
+      - 'dependencies'
+    open-pull-requests-limit: 20
+
+  - package-ecosystem: 'npm'
+    directory: '/packages/tsconfig'
+    schedule:
+      interval: 'daily'
+    target-branch: 'dev'
+    labels:
+      - 'dependencies'
+    open-pull-requests-limit: 20

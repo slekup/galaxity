@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "galaxity",
+  "version": "0.0.0",
+  "private": true,
+  "description": " A Discord bot with advanced statistics and in-depth analysis to drive higher member engagement and activity. ",
+  "bugs": {
+    "url": "https://github.com/slekup/galaxity/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slekup/galaxity"
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "fix": "manypkg fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "postinstall": "manypkg check",
+    "lint": "turbo run lint",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-angular": "^18.1.0",
+    "@manypkg/cli": "^0.21.0",
+    "@types/node": "^20.8.10",
+    "dotenv-cli": "^7.3.0",
+    "eslint": "^8.52.0",
+    "eslint-config-galaxity": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "turbo": "latest",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "packageManager": "pnpm@8.10.0",
+  "engines": {
+    "node": ">=21.0.0",
+    "pnpm": ">=8.10.0"
+  },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+
+ Logs
+logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage
+
+# Next.js
+.next/
+out/
+
+# Dist
+dist/
+build/
+
+# Cache
+tmp/
+.prettiercache
+.eslintcache
+
+# Environment
+.env.*
+!.env.example
+
+# Miscellaneous
+.tmp
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea
+.DS_Store
+tsup.config.bundled*
+
+# Turbo
+.turbo
