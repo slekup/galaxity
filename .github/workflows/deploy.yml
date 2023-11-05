@@ -23,6 +23,7 @@ jobs:
               - '.github/workflows/deploy.yml'
               - 'tools/scripts/docker.sh'
               - '.dockerignore'
+              - 'docker-compose.production.yml'
               - 'run.sh'
             bot:
               - *all
