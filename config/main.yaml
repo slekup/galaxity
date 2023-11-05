@@ -1,0 +1,17 @@
+productionId: 1090549575766511667
+status: Crunching numbers!
+
+links:
+  invite: https://discord.com/oauth2/authorize?client_id=1090549575766511667&scope=bot%20applications.commands&permissions=8
+  support: https://discord.gg/galaxity
+  vote: https://discord.gg/galaxity # TODO: Add vote link
+
+developers:
+  - '896657711104667719'
+
+colors:
+  primary: '#0598F4'
+  success: '#0598F4'
+  warning: '#0598F4'
+  danger: '#0598F4'
+  blurple: '#5865F4'

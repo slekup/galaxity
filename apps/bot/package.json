@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "bot",
+  "version": "0.0.0",
+  "private": true,
+  "license": "CC-BY-NC-SA-4.0",
+  "scripts": {
+    "build": "tsc --build --verbose && tsc-alias && pnpm copyfiles",
+    "build:clean": "pnpm clean && tsc --build --verbose && tsc-alias",
+    "clean": "rimraf dist",
+    "copyfiles": "copyfiles -u 1 ./config/**/*.yaml ./dist/config",
+    "dev": "nodemon --watch src/** --ext ts,json --exec pnpm dev:exec",
+    "dev:exec": "pnpm build && pnpm start",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix && tsc --noEmit",
+    "migrate": "ts-node ./migrations/index.ts",
+    "start": "node dist/src/index.js"
+  },
+  "dependencies": {
+    "@galaxity/tsconfig": "workspace:^",
+    "@slekup/utils": "^0.0.16",
+    "axios": "^1.6.0",
+    "builder-validation": "^0.0.3",
+    "colors": "^1.4.0",
+    "cron": "^3.1.6",
+    "discord-advanced": "^0.0.5",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "env": "^0.0.2",
+    "eslint-config-galaxity": "workspace:^",
+    "fast-glob": "^3.3.1",
+    "glob": "^10.3.10",
+    "logform": "^2.6.0",
+    "moment-timezone": "^0.5.43",
+    "mongoose": "^8.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tslib": "^2.6.2",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/uuid": "^9.0.6",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.52.0",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.2.2"
+  }
+}

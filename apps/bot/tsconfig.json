@@ -1,0 +1,26 @@
+{
+  "extends": "@galaxity/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@config": ["src/config"],
+      "@constants/*": ["src/constants/*"],
+      "@crons/*": ["src/crons/*"],
+      "@events/*": ["src/events/*"],
+      "@interactions/*": ["src/interactions/*"],
+      "@interface/*": ["src/interface/*"],
+      "@models/*": ["src/models/*"],
+      "@services/*": ["src/services/*"],
+      "@typings/*": ["src/typings/*"],
+      "@utils/*": ["src/utils/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../../environment.d.ts",
+    "package.json",
+    "register.cjs"
+  ],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
