@@ -2,12 +2,12 @@ version: '3.3'
 services:
   bot:
     container_name: bot
-    build:
-      context: .
-      dockerfile: ./docker/production/Dockerfile.bot
+    image: slekup/galaxity:main
     env_file:
       - .env.local
     restart: always
+    # depends_on:
+    #   - api
     networks:
       - app-network
 
