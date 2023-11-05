@@ -44,6 +44,7 @@ export class Config implements ConfigType {
   public developers = main.developers;
   public colors = main.colors;
   public status = main.status;
+  public images = main.images;
 
   // Environment
   public env = env;

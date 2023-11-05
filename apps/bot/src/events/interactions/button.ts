@@ -52,6 +52,17 @@ export default new Event({
     return;
   }
 
+  if (!button.execute) {
+    client.respond(interaction, {
+      content: 'This button is currently unavailable. Error: NE.',
+      ephemeral: true,
+    });
+    client.logger.error(
+      `Button ${buttonId} does not have an execute function.`
+    );
+    return;
+  }
+
   try {
     // If the user is on button cooldown
     if (cooldown.has(user.id)) {
@@ -75,8 +86,8 @@ export default new Event({
 
     // If the button has arguments
     if (customId.includes('*')) {
-      // Get the button argments
-      const args = customId
+      // Get the button arguments
+      let args = customId
         .substring(customId.indexOf('*') + 1, customId.length)
         .split('-');
 
@@ -84,8 +95,8 @@ export default new Event({
       if (button.perUser) {
         const userId = args[0];
 
-        if (user.id !== userId) {
-          interaction.reply({
+        if (interaction.user.id !== userId) {
+          client.respond(interaction, {
             content: 'This is for someone else.',
             ephemeral: true,
           });
@@ -93,14 +104,14 @@ export default new Event({
         }
 
         // Remove user id from args
-        args.shift();
-
-        // Execute the button with args
-        if (button.execute) await button.execute(client, interaction, args);
-      } else if (button.execute) {
-        // Execute the button without args
-        await button.execute(client, interaction);
+        args = args.slice(1);
       }
+
+      // Execute the button with args
+      await button.execute(client, interaction, args);
+    } else {
+      // Execute the button without args
+      await button.execute(client, interaction);
     }
 
     // Run the button middleware
@@ -111,5 +122,6 @@ export default new Event({
       content: 'An error occurred while trying to execute that command.',
       ephemeral: true,
     });
+    interaction.message?.delete().catch(client.logger.error);
   }
 });

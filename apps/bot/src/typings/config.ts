@@ -42,6 +42,9 @@ export interface MainConfig {
     danger: `#${string}`;
     blurple: `#${string}`;
   };
+  images: {
+    banner: string;
+  };
 }
 
 export interface ConfigType extends MainConfig {

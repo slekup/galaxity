@@ -73,9 +73,9 @@ export type CommandAutocomplete = (
 
 export interface ICommand extends InternalBaseInteraction {
   data: CommandData;
-  execute?: CommandExecute;
-  autocomplete?: CommandAutocomplete;
-  developer?: boolean;
+  execute?: CommandExecute | undefined;
+  autocomplete?: CommandAutocomplete | undefined;
+  developer?: boolean | undefined;
 }
 
 /**
@@ -84,9 +84,9 @@ export interface ICommand extends InternalBaseInteraction {
 
 export interface ISubCommand extends InternalBaseInteraction {
   subCommand: string;
-  execute?: CommandExecute;
-  autocomplete?: CommandAutocomplete;
-  developer?: boolean;
+  execute?: CommandExecute | undefined;
+  autocomplete?: CommandAutocomplete | undefined;
+  developer?: boolean | undefined;
 }
 
 /**
@@ -101,7 +101,7 @@ export type ContextMenuCommandExecute = (
 
 export interface IContextMenuCommand extends InternalBaseInteraction {
   data: ContextMenuCommandBuilder;
-  execute?: ContextMenuCommandExecute;
+  execute?: ContextMenuCommandExecute | undefined;
 }
 
 /**
@@ -111,26 +111,26 @@ export interface IContextMenuCommand extends InternalBaseInteraction {
 export type PrefixCommandExecute = (
   client: IExtendedClient,
   message: Message,
-  args?: string[]
+  args?: string[] | undefined
 ) => unknown;
 
 export interface PrefixCommandOption {
   name: string;
   type: 'string' | 'number' | 'boolean' | 'user' | 'channel' | 'role';
-  required?: boolean;
-  choices?: string[];
-  min?: number;
-  max?: number;
+  required?: boolean | undefined;
+  choices?: string[] | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
 }
 
 export interface IPrefixCommand extends InternalBaseInteraction {
   name: string;
   description: string;
-  execute?: PrefixCommandExecute;
-  category?: string;
-  alias?: string;
-  options?: PrefixCommandOption[];
-  permissions?: PermissionResolvable[];
+  execute?: PrefixCommandExecute | undefined;
+  category?: string | undefined;
+  alias?: string | undefined;
+  options?: PrefixCommandOption[] | undefined;
+  permissions?: PermissionResolvable[] | undefined;
 }
 
 /**
@@ -149,15 +149,15 @@ export type ISudoCommand = Omit<
 export type ButtonExecute = (
   client: IExtendedClient,
   interaction: ButtonInteraction,
-  args?: string[]
+  args?: string[] | undefined
 ) => unknown;
 
 export interface IButton extends InternalBaseInteraction {
   id: string;
   description: string;
-  execute?: ButtonExecute;
-  developer?: boolean;
-  perUser?: boolean;
+  execute?: ButtonExecute | undefined;
+  developer?: boolean | undefined;
+  perUser?: boolean | undefined;
 }
 
 /**
@@ -172,9 +172,9 @@ export type SelectMenuExecute = (
 
 export interface ISelectMenu extends InternalBaseInteraction {
   id: string;
-  developer?: boolean;
-  perUser?: boolean;
-  execute?: SelectMenuExecute;
+  developer?: boolean | undefined;
+  perUser?: boolean | undefined;
+  execute?: SelectMenuExecute | undefined;
 }
 
 /**
@@ -184,15 +184,15 @@ export interface ISelectMenu extends InternalBaseInteraction {
 export type ModalExecute = (
   client: IExtendedClient,
   interaction: ModalSubmitInteraction,
-  args?: string[]
+  args?: string[] | undefined
 ) => unknown;
 
 export interface IModal extends InternalBaseInteraction {
   id: string;
   description: string;
-  execute?: ModalExecute;
-  developer?: boolean;
-  perUser?: boolean;
+  execute?: ModalExecute | undefined;
+  developer?: boolean | undefined;
+  perUser?: boolean | undefined;
 }
 
 /**
@@ -206,8 +206,8 @@ export interface ICron {
   name: string;
   expression: string;
   timezone: string;
-  execute?: CronExecute;
-  disabled?: boolean;
+  execute?: CronExecute | undefined;
+  disabled?: boolean | undefined;
 }
 
 /**
@@ -231,11 +231,11 @@ export type EventExecute<T extends unknown[] = unknown[]> = (
 ) => Promise<void> | void;
 
 export interface IEvent {
-  rest?: boolean;
-  once?: boolean;
+  rest?: boolean | undefined;
+  once?: boolean | undefined;
   name: keyof ClientEvents;
   execute?: EventExecute | undefined;
-  disabled?: boolean;
+  disabled?: boolean | undefined;
 }
 
 /**
@@ -243,16 +243,16 @@ export interface IEvent {
  */
 
 export interface CoreInterfaceOptions {
-  client?: IExtendedClient;
-  interaction?: BaseInteraction;
+  client?: IExtendedClient | undefined;
+  interaction?: BaseInteraction | undefined;
   [key: string]: unknown;
 }
 
 interface CoreInterfaceResult {
-  content?: string;
-  embeds?: EmbedBuilder[];
-  components?: ActionRowBuilder<ButtonBuilder>[];
-  files?: AttachmentBuilder[];
+  content?: string | undefined;
+  embeds?: EmbedBuilder[] | undefined;
+  components?: ActionRowBuilder<ButtonBuilder>[] | undefined;
+  files?: AttachmentBuilder[] | undefined;
 }
 
 export type CoreInterfaceFunction<T = CoreInterfaceOptions> = (

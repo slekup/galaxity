@@ -76,10 +76,10 @@ const invalidOptionsResponse = (
     option: {
       name: string;
       type: 'string' | 'number' | 'boolean' | 'user' | 'channel' | 'role';
-      required?: boolean;
-      choices?: string[];
-      min?: number;
-      max?: number;
+      required?: boolean | undefined;
+      choices?: string[] | undefined;
+      min?: number | undefined;
+      max?: number | undefined;
     };
     issue: 'type' | 'range' | 'choices';
     num: number;
@@ -152,10 +152,10 @@ export const hasInvalidOptions = (
     option: {
       name: string;
       type: 'string' | 'number' | 'boolean' | 'user' | 'channel' | 'role';
-      required?: boolean;
-      choices?: string[];
-      min?: number;
-      max?: number;
+      required?: boolean | undefined;
+      choices?: string[] | undefined;
+      min?: number | undefined;
+      max?: number | undefined;
     };
     issue: 'type' | 'range' | 'choices';
     num: number;

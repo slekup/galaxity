@@ -1,0 +1,54 @@
+# Dependencies
+**/node_modules
+
+# Logs
+**/logs
+**/*.log
+**/npm-debug.log*
+
+# Testing
+**/coverage
+
+# Next.js
+**/.next/
+**/out/
+
+# Dist
+**/dist/
+**/build/
+
+# Cache
+**/tmp/
+**/.turbo/
+**/.prettiercache
+**/.eslintcache
+
+# Environment
+# **/.env.*
+
+# Miscellaneous
+**/.tmp
+**/.vscode/*
+**/.idea
+**/.DS_Store
+**/tsup.config.bundled*
+
+# Docker specific
+**/.husky/
+**/.git/
+**/.github/
+**/.commitlintrc.json
+**/.editorconfig
+**/.eslintrc.js
+**/.gitattributes
+**/.gitignore
+**/.lintstagedrc
+**/.prettierignore
+**/.prettierrc
+**/docker-compose.yml
+**/docker-compose.*.yml
+**/Dockerfile
+**/Dockerfile.*
+**/LICENSE
+**/README.md
+**/CHANGELOG.md
