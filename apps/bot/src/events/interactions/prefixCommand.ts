@@ -17,7 +17,7 @@ export default new EventBuilder({
   if (!guild?.id || !client.user) return;
 
   // Message does not have the prefix
-  const serverPrefix = `,`;
+  const serverPrefix = `g `;
 
   // Respond when the bot is mentioned
   if (content === `<@${client.user.id}>`)

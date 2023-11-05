@@ -10,8 +10,8 @@ developers:
   - '896657711104667719'
 
 colors:
-  primary: '#0598F4'
-  success: '#0598F4'
-  warning: '#0598F4'
-  danger: '#0598F4'
-  blurple: '#5865F4'
+  primary: '#E265FD'
+  success: '#00FF00'
+  warning: '#FF9609'
+  danger: '#FF0000'
+  blurple: '#535EEC'
