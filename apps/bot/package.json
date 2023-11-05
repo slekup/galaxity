@@ -5,10 +5,9 @@
   "private": true,
   "license": "CC-BY-NC-SA-4.0",
   "scripts": {
-    "build": "tsc --build --verbose && tsc-alias && pnpm copyfiles",
+    "build": "tsc --build --verbose && tsc-alias",
     "build:clean": "pnpm clean && tsc --build --verbose && tsc-alias",
     "clean": "rimraf dist",
-    "copyfiles": "copyfiles -u 1 ./config/**/*.yaml ./dist/config",
     "dev": "nodemon --watch src/** --ext ts,json --exec pnpm dev:exec",
     "dev:exec": "pnpm build && pnpm start",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
