@@ -2,9 +2,13 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
-    "module": "ESNext",
+    "composite": false,
+    // Modules
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    // Type Checking
     "alwaysStrict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -25,25 +29,29 @@
     "strictBindCallApply": true,
     "useUnknownInCatchVariables": true,
     "useDefineForClassFields": true,
+    // Emit
     "noEmit": false,
+    "noEmitOnError": false,
     "declaration": true,
     "declarationMap": true,
     "importHelpers": true,
     "inlineSources": true,
     "newLine": "lf",
     "noEmitHelpers": true,
-    "outDir": "packages/express-custom/dist",
+    "outDir": "dist",
     "removeComments": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "preserveWatchOutput": true,
+    // Language and Environment
     "experimentalDecorators": true,
     "lib": ["ESNext"],
     "target": "ESNext",
+    // Other
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "preserveWatchOutput": true,
-    "paths": {}
+    "skipDefaultLibCheck": true
   },
   "include": ["../../environment.d.ts"],
   "exclude": ["node_modules"]
