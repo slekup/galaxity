@@ -1,10 +1,26 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "galaxity",
+  "version": "0.0.0",
   "private": true,
+  "description": " A Discord bot with advanced statistics and in-depth analysis to drive higher member engagement and activity. ",
+  "bugs": {
+    "url": "https://github.com/slekup/galaxity/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slekup/galaxity"
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
@@ -12,6 +28,14 @@
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.6.10",
-  "name": "galaxity"
+  "packageManager": "pnpm@8.10.0",
+  "engines": {
+    "node": ">=21.0.0",
+    "pnpm": ">=8.10.0"
+  },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  }
 }
