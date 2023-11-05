@@ -18,12 +18,14 @@
   ],
   "scripts": {
     "build": "dotenv -e .env.local -- turbo run build",
+    "build:prod": "dotenv -e .env.production -- turbo run build",
     "dev": "dotenv -e .env.local -- turbo run dev",
     "fix": "manypkg fix",
     "format": "prettier --write \"**/*.{ts,tsx,md,mdx,json}\"",
     "postinstall": "manypkg check",
     "lint": "turbo run lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "dotenv -e .env.local -- turbo run start"
   },
   "dependencies": {
     "@commitlint/cli": "^18.2.0",

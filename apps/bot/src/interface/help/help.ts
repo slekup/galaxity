@@ -17,6 +17,7 @@ export default function helpInterface(
 ): void {
   const embed = new EmbedBuilder()
     .setColor(config.colors.primary)
+    .setImage(config.images.banner)
     .setAuthor({
       name: `Galaxity Help Menu`,
       ...(client.user?.displayAvatarURL

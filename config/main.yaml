@@ -15,3 +15,6 @@ colors:
   warning: '#FF9609'
   danger: '#FF0000'
   blurple: '#535EEC'
+
+images:
+  banner: https://i.imgur.com/HCya0RU.png

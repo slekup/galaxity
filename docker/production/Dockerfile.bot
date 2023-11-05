@@ -1,0 +1,47 @@
+# Use Node.js 21 as the base image
+FROM node:21-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+# Install the latest pnpm version with corepack
+RUN corepack enable
+RUN corepack prepare pnpm@latest --activate
+# Add apk packages
+RUN apk add --update --no-cache python3 build-base gcc && ln -sf /usr/bin/python3 /usr/bin/python
+RUN apk add --no-cache libc6-compat
+RUN apk update
+# Set working directory
+WORKDIR /app
+
+
+# Install dependencies
+FROM base AS installer
+COPY . .
+# Install the dependencies
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile
+# Build the project
+RUN pnpm run build:prod
+
+
+# Create the production-ready image - final output of build
+FROM base as runner
+# Don't run production as root
+# Add a new group called nodejs, with GID 1001
+RUN addgroup -g 1001 -S nodejs
+# Add a new user called discordjs, with UID/GID 1001, to run as a non-root user
+RUN adduser -S discordjs -u 1001 -G nodejs
+# Switch to the `discordjs` user
+USER discordjs
+# Config files that the app needs
+COPY --from=installer --chown=discordjs:nodejs /app/turbo.json ./
+COPY --from=installer --chown=discordjs:nodejs /app/package.json ./
+COPY --from=installer --chown=discordjs:nodejs /app/pnpm-lock.yaml ./
+COPY --from=installer --chown=discordjs:nodejs /app/pnpm-workspace.yaml ./
+COPY --from=installer --chown=discordjs:nodejs /app/config ./config
+COPY --from=installer --chown=discordjs:nodejs /app/node_modules ./node_modules
+# Copy the production-ready app from the previous stage to the container (deps + built files)
+COPY --from=installer --chown=discordjs:nodejs /app/apps/bot/package.json ./apps/bot/
+COPY --from=installer --chown=discordjs:nodejs /app/apps/bot/node_modules ./apps/bot/node_modules
+COPY --from=installer --chown=discordjs:nodejs /app/apps/bot/dist ./apps/bot/dist
+# Start the bot
+CMD ["pnpm", "run", "start"]
