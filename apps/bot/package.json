@@ -18,7 +18,7 @@
   "dependencies": {
     "@galaxity/tsconfig": "workspace:^",
     "@slekup/utils": "^0.0.16",
-    "axios": "^1.6.0",
+    "axios": "^1.6.1",
     "builder-validation": "^0.0.3",
     "colors": "^1.4.0",
     "cron": "^3.1.6",
