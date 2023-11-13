@@ -29,7 +29,7 @@
     "start": "dotenv -e .env.local -- turbo run start"
   },
   "dependencies": {
-    "@commitlint/cli": "^18.2.0",
+    "@commitlint/cli": "^18.4.1",
     "@commitlint/config-angular": "^18.1.0",
     "@manypkg/cli": "^0.21.0",
     "@types/node": "^20.9.0",
