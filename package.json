@@ -30,16 +30,16 @@
     "update": "pnpm update --recursive --latest --interactive"
   },
   "dependencies": {
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-angular": "^18.1.0",
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-angular": "^18.4.2",
     "@manypkg/cli": "^0.21.0",
-    "@types/node": "^20.8.10",
+    "@types/node": "^20.9.1",
     "dotenv-cli": "^7.3.0",
-    "eslint": "^8.52.0",
+    "eslint": "^8.54.0",
     "eslint-config-galaxity": "workspace:*",
     "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
-    "prettier": "^3.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
     "turbo": "latest",
     "typescript": "^5.2.2"
   },
