@@ -26,7 +26,8 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "prepare": "husky install",
-    "start": "dotenv -e .env.local -- turbo run start"
+    "start": "dotenv -e .env.local -- turbo run start",
+    "update": "pnpm update --recursive --latest --interactive"
   },
   "dependencies": {
     "@commitlint/cli": "^18.2.0",
