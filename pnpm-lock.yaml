@@ -12,8 +12,8 @@ importers:
         specifier: ^18.4.2
         version: 18.4.2(typescript@5.2.2)
       '@commitlint/config-angular':
-        specifier: ^18.4.2
-        version: 18.4.2
+        specifier: ^18.4.3
+        version: 18.4.3
       '@manypkg/cli':
         specifier: ^0.21.0
         version: 0.21.0
@@ -424,16 +424,16 @@ packages:
       - typescript
     dev: false
 
-  /@commitlint/config-angular-type-enum@18.4.0:
-    resolution: {integrity: sha512-vi0i1XTPypvPUvdCfp9sCcDhVm2jq2TvPUNd7ff7ipSP5kBf1FxV8onjfSY/+3b/6ZF6pGERiqvRVrvu3GgBFQ==}
+  /@commitlint/config-angular-type-enum@18.4.3:
+    resolution: {integrity: sha512-Gg65txKHYG5zPJxIrE9/ESS7CItyz2BB9VgFy8orK0uDg9KUb+yjL/tRKttuHmrHppK2HO/PUs5Qe1BMzdrSPQ==}
     engines: {node: '>=v18'}
     dev: false
 
-  /@commitlint/config-angular@18.4.2:
-    resolution: {integrity: sha512-U8rUKIzzQmBL2rxMCkN5WwYraCeXCpNG/e8WIH4EVrPSYyg/GnydWQaOqY1o9uWADiQ1thmYOz+RAYNpuOQxMw==}
+  /@commitlint/config-angular@18.4.3:
+    resolution: {integrity: sha512-LaoWW56jymtWPubIe8ndFg6wYLWixbNrXVk8EtV24ZaY8R223bO3iA2by+YD7aorQGxvMJFyyeFc3e0Gs40NWw==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/config-angular-type-enum': 18.4.0
+      '@commitlint/config-angular-type-enum': 18.4.3
     dev: false
 
   /@commitlint/config-validator@18.4.0:
